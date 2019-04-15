@@ -1,0 +1,543 @@
+.topbanner{
+    width: 100%;
+    height: 80px;
+    background-color: #8B25C6;
+    position: relative;
+}
+.banner_jd{
+    height: 80px;
+    background: url(../images/topbanner.jpg) no-repeat;
+    position: relative;
+}
+.banner_jd span{
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0,0,0,0.3);
+    font: 700 16px/20px "宋体";
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+/* navitems */
+.navitems{
+    width: 800px;
+    height: 20px;
+    margin-left: 223px;
+    font: 400 14px "微软雅黑";
+}
+.navitems ul li{
+    float: left;
+    margin-right: 25px;
+}
+.navitems ul li.last{
+    margin-right: 16px;
+}
+.navitems li i{
+    margin: 0;
+    display: block;
+    height: 10px;
+    width: 1px;
+    background-color: #CCCCCC;
+    margin-top: 5px;
+}
+.content{
+    /* height: 770px; */
+    margin-top: 17px;
+    position: relative;
+}
+.jd-icon .dd{
+    width: 190px;
+    height: 480px;
+    position: absolute;
+    top: 170px;
+    left: 0;
+    background-color: #FEFEFE;
+    border-top: 1px solid #EDEDED;
+}
+.jd-icon .dd ul{
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    width: 172px;
+    height: 468px;
+    z-index: 999;
+}
+.jd-icon .dd li{
+    width: 100%;
+    padding: 0;
+    height: 26px;
+    font: 400 14px "微软雅黑";
+}
+.jd-icon .service-dd{
+    width: 1000px;
+    background-color: #fff;
+    position: absolute;
+    top: 170px;
+    left: 190px;
+    z-index: 999;
+}
+.jd-icon .service-dd div{
+    border: 1px solid #CED1CD;
+    display: none;
+}
+.jd-icon .service-dd ul{
+    padding: 22px 0 0 25px;
+    width: 100%;
+}
+.jd-icon .service-dd ul li{
+    float: none;
+}
+.jd-icon .service-dd span{
+    padding: 7px 13px 7px 10px;
+    background-color: #333333;
+    color: #fff;
+    font: 600  sans-serif;
+}
+.jd-icon .service-dd i{
+    font: 600 14px "宋体";
+}
+/* slider轮播图 */
+.superday{
+    position: absolute;
+    top: 0;
+    left: 50%;
+}
+.superday .jd-day{
+    position: absolute;
+    top: 0;
+    margin-left: -845px;
+}
+.superday .super-img{
+    margin-left: -595px;
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    display: none;
+}
+.slider{
+    width: 990px;
+    height: 470px;
+    float: right;
+    position: relative;
+}
+.slider .scroll{
+    width: 590px;
+    height: 100%;
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+.slider .scroll-img{
+    width: 590px;
+    height: 470px;
+}
+.slider .scroll-img img{
+    vertical-align: top;
+    position: relative;
+}
+.slider .scroll-img ul{
+    width: 1000%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.slider ul li{
+    float: left;
+}
+.slider ol{
+    list-style: none;
+    position: absolute;
+    bottom: 10px;
+    left: 49px;
+}
+.slider ol li{
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, .5);
+    float: left;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.slider ol li.gold{
+    background-color: gold;
+}
+.slider .arr div{
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+    height: 40px;
+    width: 24px;
+    background-color: rgba(0,0,0,.2);
+    font: 600 16px/40px "宋体";
+    color: rgba(255,255,255,.5);
+    text-align: center;
+    cursor: pointer;
+}
+.arr-l{
+    left: 0;
+}
+.arr-r{
+    right: 0;
+}
+.slider .promotion{
+    height: 100%;
+    width: 390px;
+    float: right;
+}
+.slider .promotion-msg{
+    width: 190px;
+    height: 100%;
+    float: left;
+}
+.promotion-msg li{
+    margin-bottom: 10px;
+}
+.promotion-msg li.last{
+    margin-bottom: 0;
+}
+.slider .jd-services{
+    width: 190px;
+    height: 100%;
+    float: right;
+    background-color: #fff;
+}
+.slider .jd-welcome{
+    height: 280px;
+    margin: 0 10px;
+    border-bottom: 1px solid #EBEAEA;
+    position: relative;
+}
+.slider .login-img{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 5px solid rgba(0,0,0,.1);
+    box-shadow: 5px 5px 20px rgba(0,0,0,.2);
+    overflow: hidden;
+    position: absolute;
+    margin-left: -32.5px;
+    left: 50%;
+    top: -10px;
+}
+.slider .login-img img{
+    width: 55px;
+    height: 55px;
+}
+.slider .welcome{
+    position: absolute;
+    top: 65px;
+    text-align: center;
+    width: 100%;
+}
+.promotion .welcome .newp{
+    margin-top: 14px;
+    height: 25px;
+}
+.promotion .welcome .new{
+    float: left;
+    border-radius: 15px;
+    width: 70px;
+    height: 25px;
+    box-shadow: 10px 10px 10px #EBEBEB;
+    overflow: hidden;
+}
+.promotion .welcome .new a{
+    width: 70px;
+    height: 25px;
+    display: block;
+    line-height: 25px;
+}
+.promotion .welcome .new a:link,
+.promotion .welcome .new a:visited{    
+    background-color: #FFFFFF;   
+    color: #E43F3B;
+}
+.promotion .welcome .vip{
+    border-radius: 15px;
+    width: 70px;
+    height: 25px;
+    box-shadow: 10px 10px 10px #EBEBEB;
+    float: right;
+    overflow: hidden;
+}
+.promotion .welcome .vip a{
+    width: 70px;
+    height: 25px;
+    display: block;
+    line-height: 25px;
+}
+.promotion .welcome .vip a:link,
+.promotion .welcome .vip a:visited{
+    background-color: #363634;
+    color: #E5D790;
+}
+.promotion .welcome .new a:hover,
+.promotion .welcome .vip a:hover{
+    background-color: #E43F3B;
+    color: #FFF;
+}
+.promotion .jd-news{
+    margin-top: 20px;
+}
+.promotion .jd-news .news-t{
+    height: 30px;
+}
+.promotion .jd-news .newsflash{
+    float: left;
+    font: 700 14px "微软雅黑";
+    color: #1E1E1E;
+}
+.promotion .jd-news .more{
+    float: right;
+    font: 400 14px "微软雅黑";
+    color: #999999;
+}
+.promotion .jd-news i{
+    font: 600 14px "宋体";
+}
+.promotion .jd-news .news-b li{
+    cursor: pointer;
+    height: 20px;
+    font: 400 12px "微软雅黑";
+}
+.promotion .jd-news .notice{
+    border-radius: 5px;
+    padding: 1px 5px;
+    background-color: #90B0C6;
+    color: #fff;
+    float: left;
+}
+.promotion .jd-news .activity{
+    border-radius: 5px;
+    padding: 1px 5px;
+    background-color: #E0B95A;
+    color: #fff;
+    float: left;
+}
+.promotion .jd-news .recommend{
+    border-radius: 5px;
+    padding: 1px 5px;
+    background-color: #E47F7F;
+    color: #fff;
+    float: left;
+}
+.promotion .jd-news .latest{
+    border-radius: 5px;
+    padding: 2px 5px;
+    background-color: #E47F7F;
+    color: #fff;
+    float: left;
+}
+.promotion .jd-news .shortnews{
+    float: left;
+    padding-left: 10px;
+    text-align: left;
+}
+.jd-services .service{
+    padding: 25px 10px 0 10px;
+    height: 164px;
+    overflow: hidden;
+}
+.jd-services .service li{
+    height: 55px;
+    width: 40px;
+    float: left;  
+    text-align: center;
+}
+.jd-services .service i{
+    display: block;
+    width: 25px;
+    height: 25px;
+    background: url(../images/icon_lifeserv.png) no-repeat 0 0;
+    margin-left: 7px;
+}
+.commodity-info{
+    margin-top: 30px;
+    height: 275px;
+}
+.commodity-info .flash-deals{
+    padding-top: 40px;
+    width: 190px;
+    height: 235px;
+    background-color: #E83632;
+    float: left;
+    position: relative;
+}
+.commodity-info .flash-deals h1{
+    text-align: center;
+    color: #fff;
+    font: 400 35px "微软雅黑";
+}
+.commodity-info .flash-deals h2{
+    color: #F49B99;
+    font: 400 20px Arial;
+    text-align: center;
+}
+.commodity-info .flash-deals .flash-img{
+    width: 20px;
+    height: 33px;
+    background: url(../images/sprite.seckill.png) no-repeat -35px -25px;
+    margin: 13px 0 15px 85px;
+}
+.commodity-info .flash-deals p{
+    text-align: center;
+    color: #FFFFFF;
+    font: 400 16px "微软雅黑";
+}
+.commodity-info .flash-deals .time{
+    width: 130px;
+    height: 40px;
+    margin: 22px 0 0 30px;
+}
+.commodity-info .time .hour{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin-right: 5px;
+    float: left;
+}
+.commodity-info .time .hour-t{
+    display: block;
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #2F3430;
+}
+.commodity-info .time .hour-b{
+    display: block;
+    width: 40px;
+    height: 19px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #2F3430;
+}
+.commodity-info .time .time-hour,
+.commodity-info .time .time-minute,
+.commodity-info .time .time-second{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font: 400 22px/40px "微软雅黑";
+    text-align: center;
+    color: #fff;
+}
+.commodity-info .time .minute{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin-right: 5px;
+    float: left;
+}
+.commodity-info .time .second{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    float: left;
+}
+.commodity-info .commodity{
+    width: 800px;
+    height: 275px;
+    background-color: pink;
+    float: left;
+    overflow: hidden;
+}
+.commodity-info .commodity li a{
+    display: block;
+    padding-top: 30px;
+    text-align: center;
+}
+.commodity-info .commodity a p{
+    padding: 19px;
+    font: 400 12px "微软雅黑";
+}
+.commodity-info .commodity ul{
+    width: 2000%;
+}
+.commodity-info .commodity li{
+    width: 199px;
+    height: 275px;
+    border-right: 1px solid #F0F0F0;
+    background-color: #fff;
+    float: left;
+}
+.commodity-info .commodity li .price{
+    width: 160px;
+    height: 20px;
+    border: 1px solid #E6382F;
+    margin-left: 20px;
+}
+.commodity-info .commodity .price-l{
+    width: 80px;
+    height: 20px;
+    background-color: #E6382F;
+    float: left;
+    color: #fff;
+    font: 400 16px "微软雅黑";
+}
+.commodity-info .commodity .price-r{
+    width: 80px;
+    height: 20px;
+    background-color: #fff;
+    float: left;
+    color: #B7BCB8;
+    font: 400 16px "微软雅黑";
+    text-decoration: line-through;
+}
+.commodity-info .commodity span{
+    display: block;
+    width: 80px;
+    height: 20px;
+}
+.commodity-info .seckill{
+    width: 200px;
+    height: 275px;
+    float: left;
+    position: relative;
+    background-color: #fff;
+}
+.commodity-info .seckill .seckill-shop{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    height: 260px;
+    margin: -130px 0 0 -90px;
+    overflow: hidden;
+}
+.commodity-info .seckill ul{
+    width: 400%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.commodity-info .seckill ul li{
+    float: left;
+}
+.commodity-info .seckill ol{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -15px;
+}
+.commodity-info .seckill ol li{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #C0C0C0;
+    margin-right: 10px;
+    float: left;
+}
+.commodity-info .seckill ol li.now{
+    background-color: #E33333;
+}
