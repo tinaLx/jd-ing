@@ -31,18 +31,7 @@
                 $("shop_car").style.borderBottom = "1px solid #E3E4E5";
                 // alert("11");
             }
-            $("jd_arrleft").onclick = function(){
-                bgc_change($("jd_arrleft"),.5);
-            }
-            $("jd_arrleft").onmouseout= function(){
-                bgc_change($("jd_arrleft"),.2);
-            }
-            $("jd_arrright").onclick = function(){
-                bgc_change($("jd_arrright"),.5);
-            }
-            $("jd_arrright").onmouseout = function(){
-                bgc_change($("jd_arrleft"),.2);
-            }
+
             // 搜索框
             $("jd_search").oninput = function(){
                 // alert(11);
@@ -52,69 +41,97 @@
                     $("label").style.display = "none";
                 }
             }
-            //轮播图 待完善 
-            var slider_lis = $("slider_ul").children;
-            var ol = document.createElement("ol");
-            $("jd_scroll").insertBefore(ol,$("arr"));
-            for(var i =0 ; i<slider_lis.length-1; i++){
-                var li = document.createElement("li");
-                ol.appendChild(li);
+            //轮播图 
+            var js_slider = $("js_slider");
+            var slider_main_img = js_slider.children[0].children;
+            var slider_ctrl = js_slider.children[1];
+            var slider_ctrl_focus = js_slider.children[2];
+            var clientWidth = js_slider.clientWidth;
+            console.log(clientWidth);
+            for(var i =0; i<slider_main_img.length ; i++){
+                var span = document.createElement("span");
+                slider_ctrl_focus.appendChild(span);
+                span.className = "slider-ctrl-focus-s";
+                span.innerHTML = i+1;
             }
-            ol.children[0].className = "gold";
+            var spans_slider_ctrl = document.getElementById("slider_ctrl").getElementsByTagName("span");
+            // spans[2].className = " slider-ctrl-focus-s current";
+            var spans_slider_ctrl_focus = document.getElementById("slider_ctrl_focus").getElementsByTagName("span");
+            spans_slider_ctrl_focus[0].className = " slider-ctrl-focus-s current";
+            for(var i = 1; i <slider_main_img.length ; i++){
+                slider_main_img[i].style.left = clientWidth + "px";
+            }
 
-            //  点击 ol中li的索引号 来移动盒子
-            var jd_scroll = $("jd_scroll");
-            for(var i =0 ; i<slider_lis.length-1 ; i++){
-                ol.children[i].index = i;
-                ol.children[i].onmouseover = function(){
-                    // console.log(this.index);
-                    for(var j =0 ; j<slider_lis.length-1 ; j++){
-                        ol.children[j].className = "";
+            var iNow = 0;
+            for(var k in spans_slider_ctrl){   
+                spans_slider_ctrl[k].onclick = function(){
+                    if(this.className == "slider-ctrl-prev"){
+                        // console.log("点击了左边按钮");
+                        animate(slider_main_img[iNow],{left:clientWidth});
+                        --iNow < 0 ? iNow = slider_main_img.length - 1 : iNow;
+                        slider_main_img[iNow].style.left = -clientWidth + "px";
+                        animate(slider_main_img[iNow],{left:0});
+                        setSquare();
+                        
                     }
-                    this.className = "gold";
-                    animate($("slider_ul"),this.index * (-590));
-                    key = circle = this.index;
+                    else{
+                        autoplay();
+                    }
                 }
             }
-            
+            for(var i = 0; i < spans_slider_ctrl_focus.length ; i++){
+                spans_slider_ctrl_focus[i].index = i;
+                spans_slider_ctrl_focus[i].onmouseover = function(){
+                    for(var i = 0; i < spans_slider_ctrl_focus.length ; i++){
+                        spans_slider_ctrl_focus[i].className = "slider-ctrl-focus-s";
+                    }
+                    spans_slider_ctrl_focus[this.index].className = "slider-ctrl-focus-s current";
+                    if(this.index > iNow){
+                        animate(slider_main_img[iNow],{left:-590});
+                        slider_main_img[this.index].style.left = clientWidth + "px";
+                        
+                    }
+                    else if(this.index < iNow){
+                        animate(slider_main_img[iNow],{left:590});
+                        slider_main_img[this.index].style.left = -clientWidth + "px";
+                    }
+                    iNow = this.index;
+                    animate(slider_main_img[this.index],{left:0});
+                    
+
+                }
+            }
+            function setSquare(){
+                for(var i = 0; i <spans_slider_ctrl_focus.length ;i++){
+                    spans_slider_ctrl_focus[i].className = "slider-ctrl-focus-s";
+                }
+                spans_slider_ctrl_focus[iNow].className = "slider-ctrl-focus-s current";
+            }
+
 
             var timer = null;
-            var key = 0;
-            var circle = 0;
-            timer = setInterval(autoplay,10000);
+            timer = setInterval(autoplay,3000);
             function autoplay(){
-                key++;
-                circle++;
-                if(key >8){
-                    key=1;
-                    $("slider_ul").style.left = 0;
-                }
-                animate($("slider_ul"),key * (-590));
-                for(var i = 0; i<ol.children.length ; i++){
-                    ol.children[i].className = "";
-                }
-                if(circle > 7){
-                    circle =0;
-                }
-                ol.children[circle].className = "gold";
+                // console.log("点击了右边按钮");
+                animate(slider_main_img[iNow],{left:-clientWidth});
+                // iNow++;
+                // if(iNow > slider_main_img.length -1){
+                //     iNow = 0;   
+                // }
+                ++iNow > (slider_main_img.length - 1) ? iNow = 0 : iNow;
+                slider_main_img[iNow].style.left = clientWidth + "px";
+                animate(slider_main_img[iNow],{left:0});
+                setSquare();
+            }
+            js_slider.onmouseover = function(){
+                clearInterval(timer);
+            }
+            js_slider.onmouseout = function(){
+                clearInterval(timer);
+                timer = setInterval(autoplay,3000);
             }
 
-            for(var i = 0; i <slider_lis.length-1 ; i++){
-                slider_lis[i].onmouseover = function(){
-                    clearInterval(timer);
-                }
-                slider_lis[i].onmouseout = function(){
-                    timer = setInterval(autoplay,3000);
-                }
-            }
 
-            // arr点击左右滑动
-            // $("jd_arrleft").onclick = function(){
-            //     animate($("slider_ul"),590);
-            // }
-            // $("jd_arrright").onclick = function(){
-            //     animate($("slider_ul"),-590);
-            // }
 
             // 精灵图
             var Service = document.getElementById("Service");
@@ -157,10 +174,10 @@
 
             // 京东品牌日
             $("jd_day").onmouseover = function(){
-                $("super_img").style.display = "block";
+                animate($("super_img"),{width:790});
             }
             $("super_img").onmouseout = function(){
-                $("super_img").style.display = "none";
+                animate($("super_img"),{width:0});
             }
 
             // 倒计时
@@ -171,6 +188,9 @@
                 var h = parseInt(ms/1000/60/60%24);
                 var m = parseInt(ms/1000/60%60);
                 var s = parseInt(ms/1000%60);
+                h = h < 10 ? "0"+h:h;
+                m = m<10 ? "0"+m : m;
+                s = s<10 ? "0"+s :s;
                 $("time_hour").innerHTML = h;
                 $("time_minute").innerHTML = m;
                 $("time_second").innerHTML = s;
@@ -235,10 +255,6 @@
                     }
                 },30);
             }
-
-
-
-            
             fnc_li[0].onmouseover = function(){
                 this.children[1].style.display = "block";
                 this.style.backgroundColor = "#C81623";
@@ -246,6 +262,16 @@
             fnc_li[0].onmouseout = function(){
                 this.children[1].style.display = "none";
                 this.style.backgroundColor = "#7A6E6E";
+            }
+
+
+            //seivice-item
+            var service_item_div = $("js_footer").children;
+            console.log(service_item_div.length);
+            // console.log(service_item_i.length);
+            for(var i =0 ; i<service_item_div.length ; i++){
+                var service_item_i = service_item_div[i].children[0].children[0];
+                service_item_i.style.backgroundPosition = ""+(-40*i)+"px -192px";
             }
         }
     </script>
@@ -489,25 +515,24 @@
             </div>
         </div>
         <div class="slider">
-            <div class="scroll" id="jd_scroll">
-                <div class="scroll-img" id="scroll_img">
-                    <ul id="slider_ul">
-                        <li><img src="images/slider01.jpg" alt=""></li>
-                        <li><img src="images/slider02.jpg" alt=""></li>
-                        <li><img src="images/slider03.jpg" alt=""></li>
-                        <li><img src="images/slider04.jpg" alt=""></li>
-                        <li><img src="images/slider05.jpg" alt=""></li>
-                        <li><img src="images/slider06.jpg" alt=""></li>
-                        <li><img src="images/slider07.jpg" alt=""></li>
-                        <li><img src="images/slider08.jpg" alt=""></li>
-                        <li><img src="images/slider01.jpg" alt=""></li>
-                    </ul>
+            <div class="j-slider" id="js_slider">
+                <div class="slider-main">
+                    <div class="slider-main-img"><img src="images/slider01.jpg" alt=""></div>
+                    <div class="slider-main-img"><img src="images/slider02.jpg" alt=""></div>
+                    <div class="slider-main-img"><img src="images/slider03.jpg" alt=""></div>
+                    <div class="slider-main-img"><img src="images/slider04.jpg" alt=""></div>
+                    <div class="slider-main-img"><img src="images/slider05.jpg" alt=""></div>
+                    <div class="slider-main-img"><img src="images/slider06.jpg" alt=""></div>
+                    <div class="slider-main-img"><img src="images/slider07.jpg" alt=""></div>
+                    <div class="slider-main-img"><img src="images/slider08.jpg" alt=""></div>  
                 </div>
-                <div class="arr" id="arr">
-                    <div class="arr-l" id="jd_arrleft"><</div>
-                    <div class="arr-r" id="jd_arrright">></div>
+                <div class="slider-ctrl" id = "slider_ctrl">
+                    <span class="slider-ctrl-prev"><</span>
+                    <span class="slider-ctrl-next">></span>
                 </div>
+                <div class="slider-ctrl-focus" id ="slider_ctrl_focus">
                 </div>
+            </div>
                 <!-- 活动促销 -->
                 <div class="promotion">
                     <div class="promotion-msg">
@@ -551,7 +576,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
                         <div class="service" id="Service">
                             <ul>
@@ -783,6 +807,104 @@
         </div>
     </div>
    
+    <div class="footer">
+        <div class="wrapper clearfix" id= "js_footer">
+            <div class="service-item">   
+                <span><i></i>品类齐全，轻松购买</span>
+            </div>
+            <div class="service-item">
+                <span><i></i>多仓直发，急速配送</span></div>
+            <div class="service-item">
+                <span><i></i>正品行货，精致服务</span></div>
+            <div class="service-item">
+                <span><i></i>>天天低价，畅选无忧</span></div>       
+        </div>
+        <div class="jd-help">
+            <div class="wrapper">
+                <div class="help-items">
+                    <div class="help-item"> 
+                        <div class="dt">购物指南</div> 
+                        <div class="dd">购物流程</div>
+                        <div class="dd">会员介绍</div>
+                        <div class="dd">生活旅行</div>
+                        <div class="dd">常见问题</div>
+                        <div class="dd">大家电</div>
+                    </div>
+                    <div class="help-item"> 
+                        <div class="dt">配送方式</div> 
+                        <div class="dd">上门自提</div>
+                        <div class="dd">211限时达</div>
+                        <div class="dd">配送服务查询</div>
+                        <div class="dd">配送费收取标准</div>
+                        <div class="dd">海外配送</div>
+                    </div>
+                    <div class="help-item"> 
+                        <div class="dt">支付方式</div> 
+                        <div class="dd">货到付款</div>
+                        <div class="dd">在线支付</div>
+                        <div class="dd">分期付款</div>
+                        <div class="dd">邮局汇款</div>
+                        <div class="dd">公司转账</div>
+                    </div>
+                    <div class="help-item"> 
+                        <div class="dt">售后服务</div> 
+                        <div class="dd">售后政策</div>
+                        <div class="dd">价格保护</div>
+                        <div class="dd">退款说明</div>
+                        <div class="dd">返修</div>
+                        <div class="dd">取消订单</div>
+                    </div>
+                    <div class="help-item"> 
+                        <div class="dt">特色服务</div> 
+                        <div class="dd">夺宝岛</div>
+                        <div class="dd">DIY装机</div>
+                        <div class="dd">延保服务</div>
+                        <div class="dd">京东E卡</div>
+                        <div class="dd">京东通信</div>
+                    </div>
+                    <div class="address">
+                        <h2>京东自营覆盖区域</h2>
+                        <p>京东已向全国2661个区县提供自营配送服务，支持货到付款、POS机刷卡和售后上门服务。</p>
+                        <a href="#">查看详情></a>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <p>
+                        <a href="#">关于我们</a>
+                        <span>|</span>
+                        <a href="#">联系我们</a>
+                        <span>|</span>
+                        <a href="#">联系客服</a>
+                        <span>|</span>
+                        <a href="#">合作招商</a>
+                        <span>|</span>
+                        <a href="#">商家帮助</a>
+                        <span>|</span>
+                        <a href="#">营销中心</a>
+                        <span>|</span>
+                        <a href="#">手机京东</a>
+                        <span>|</span>
+                        <a href="#">友情链接</a>
+                        <span>|</span>
+                        <a href="#">销售联盟</a>
+                        <span>|</span>
+                        <a href="#">京东社区</a>
+                        <span>|</span>
+                        <a href="#">风险监测</a>
+                        <span>|</span>
+                        <a href="#"> 隐私政策</a>
+                        <span>|</span>
+                        <a href="">京东公益</a>
+                        <span>|</span>
+                        <a href="#">English Site</a>
+                        <span>|</span>
+                        <a href="#">Media & IR</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>

@@ -117,7 +117,9 @@
     position: absolute;
     top: 0;
     z-index: 999;
-    display: none;
+    display: block;
+    width: 0;
+    overflow: hidden;
 }
 .slider{
     width: 990px;
@@ -125,66 +127,63 @@
     float: right;
     position: relative;
 }
-.slider .scroll{
+.slider .j-slider{
     width: 590px;
-    height: 100%;
+    height: 470px;
     float: left;
     position: relative;
     overflow: hidden;
 }
-.slider .scroll-img{
-    width: 590px;
+.slider .j-slider .slider-main{
+    width: 1180px;
     height: 470px;
+    background-color: pink;
 }
-.slider .scroll-img img{
-    vertical-align: top;
-    position: relative;
-}
-.slider .scroll-img ul{
-    width: 1000%;
-    height: 100%;
+.slider .slider-main .slider-main-img{
     position: absolute;
     top: 0;
     left: 0;
 }
-.slider ul li{
-    float: left;
+.j-slider .slider-ctrl{
+    text-align: center;
 }
-.slider ol{
-    list-style: none;
-    position: absolute;
-    bottom: 10px;
-    left: 49px;
-}
-.slider ol li{
-    width: 10px;
-    height: 10px;
-    background-color: rgba(255, 255, 255, .5);
-    float: left;
-    border-radius: 50%;
-    margin-right: 10px;
-    cursor: pointer;
-}
-.slider ol li.gold{
-    background-color: gold;
-}
-.slider .arr div{
+.j-slider .slider-ctrl .slider-ctrl-prev,
+.j-slider .slider-ctrl .slider-ctrl-next{
+    width: 24px;
+    height: 40px;
+    background-color: rgba(0,0,0,.5);
+    display: block;
+    color: rgba(255,255,255,.8);
+    font: 600 14px/40px "宋体";
     position: absolute;
     top: 50%;
-    margin-top: -15px;
-    height: 40px;
-    width: 24px;
-    background-color: rgba(0,0,0,.2);
-    font: 600 16px/40px "宋体";
-    color: rgba(255,255,255,.5);
-    text-align: center;
+    margin-top: -20px;
     cursor: pointer;
 }
-.arr-l{
+.j-slider .slider-ctrl .slider-ctrl-prev{
     left: 0;
 }
-.arr-r{
+.j-slider .slider-ctrl .slider-ctrl-next{
     right: 0;
+}
+.j-slider .slider-ctrl-focus{
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+}
+.j-slider .slider-ctrl-focus span.current{
+    background-color: orange;
+}
+.j-slider .slider-ctrl-focus .slider-ctrl-focus-s{
+    text-indent: -20em;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    margin-right: 5px;
+    cursor: pointer;
 }
 .slider .promotion{
     height: 100%;
@@ -540,4 +539,81 @@
 }
 .commodity-info .seckill ol li.now{
     background-color: #E33333;
+}
+.footer .wrapper .service-item{
+    width: 297.5px;
+    float: left;
+    padding-top: 39px;
+    text-align: center;
+    height: 73px;
+}
+.footer .wrapper .service-item span{
+    display: inline-block;
+    padding-left: 40px;
+    height: 43px;
+    position: relative;
+    font: 600 18px/43px "微软雅黑";
+    color: #444444;
+}
+.footer .wrapper .service-item i {
+    display: block;
+    width: 40px;
+    height: 43px;
+    background: url(../images/sprite.footer.png) no-repeat 0 -192px;
+    position: absolute;
+    left: 0;
+}
+.footer .jd-help{
+    border-top: 1px solid #DEDEDE;
+}
+.jd-help .help-item{
+    width: 198px;
+    height: 176px;
+    float: left;
+    padding-top: 24px;
+}
+.jd-help .help-item .dt{
+    font: 600 14px "微软雅黑";
+    color: #666666;
+    margin-bottom: 15px;
+}
+.jd-help .help-item .dd{
+    color: #666666;
+    font: 400 12px "微软雅黑";
+    height: 21px;
+}
+.jd-help .address{
+    margin-top: 24px;
+    float: right;
+    width: 200px;
+    height: 150px;
+    background: url(../images/sprite.footer.png) no-repeat;
+}
+.jd-help .address h2{
+    text-align: center;
+    font: 600 13px "微软雅黑";
+    padding-bottom: 20px;
+}
+.jd-help .address p{
+    font: 400 12px "微软雅黑";
+    line-height: 18px;
+    padding: 0 20px 0 5px;
+}
+.jd-help .address a{
+    float: right;
+    cursor: pointer;
+    padding-right: 20px;
+}
+.jd-help .wrapper .help-items{
+    height: 200px;
+    border-bottom: 1px solid #DEDEDE;
+}
+.copyright{
+    text-align: center;
+}
+.copyright span{
+    padding: 0 5px;
+}
+.copyright p{
+    font: 400 12px "微软雅黑";
 }
